@@ -1,0 +1,266 @@
+/* ===================== GLOBAL RESET ===================== */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: Verdana, Geneva, sans-serif;
+  background-color: #FFC5D3;
+  color: #3B1F2B;
+  line-height: 1.6;
+}
+
+main {
+  padding: 2rem;
+  max-width: 900px;
+  margin: auto;
+}
+
+h1, h2, h3, h4 {
+  margin: 1.5rem 0 1rem 0;
+  font-weight: normal;
+}
+
+p {
+  margin: 0.8rem 0;
+}
+
+/* ===================== HEADER ===================== */
+header {
+  background-color: #99606E;
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.home-link a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.nav-link-container {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #FFD6E0;
+}
+
+/* ===================== HOME / TEXT ===================== */
+.text-container, .brief-container {
+  text-align: center;
+  background-color: #FFDDE6;
+  padding: 2rem;
+  border-radius: 12px;
+  margin: 2rem 0;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.05);
+}
+
+.text-container p, .brief-container p {
+  text-align: center;
+}
+
+/* ===================== VIDEO ===================== */
+.video-container {
+  margin: 2rem auto;
+  max-width: 800px;
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.1);
+}
+
+.video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ===================== SLIDESHOW / FOTOS ===================== */
+.slideshow {
+  position: relative;
+  max-width: 800px;
+  margin: 3rem auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.slideshow img {
+  width: 100%;
+  display: none;
+  border-radius: 12px;
+}
+
+.slideshow img.active {
+  display: block;
+}
+
+.slideshow .prev,
+.slideshow .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.35);
+  color: white;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease;
+}
+
+.slideshow .prev:hover,
+.slideshow .next:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.slideshow .prev {
+  left: 15px;
+}
+
+.slideshow .next {
+  right: 15px;
+}
+
+
+
+/* ==================== SONGS ======================= */
+
+.songs-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin: 2rem 0;
+}
+.song {
+  flex: 1 1 300px;
+  max-width: 400px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  background-color: #FFDDE6;
+  padding: 1rem;
+  text-align: center;
+}
+.song iframe {
+  border-radius: 12px;
+}
+
+/* ===================== RESPONSIVENESS ===================== */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  .nav-link-container {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.8rem;
+    align-items: center;
+  }
+  .text-container, .brief-container, .video-container, .slideshow {
+    width: 95%;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-link, .home-link a {
+    font-size: 1rem;
+  }
+  .slideshow .prev, .slideshow .next {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* ===================== Spiel ===================== */
+
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.card {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: pink;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.hidden {
+    background-color: hotpink;
+}
+
+.matched {
+    opacity: 0.5;
+}
+
+.card {
+    perspective: 1000px;
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+}
+
+.card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.card-front {
+    background-color: hotpink;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+}

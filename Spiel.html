@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <title>Jakos Website</title>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div class="home-link">
+                    <a href="index.html">Home</a>
+                </div>
+                <div class="nav-link-container">
+                    <a class="nav-link" href="Brief.html">Brief</a>
+                    <a class="nav-link" href="Fotos.html">Fotos</a>
+                    <a class="nav-link" href="Songs.html">Songs</a>
+                    <a class="nav-link" href="Spiel.html">Spiel</a>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <h1>Memory</h1>
+    
+            <div id="game-info">
+                <p>Spieler am Zug: <span id="current-player">Josie</span></p>
+                <p>Jako: <span id="score-jako">0</span> | Josie: <span id="score-josie">0</span></p>
+            </div>
+
+            <div id="game-board"></div>
+
+            <!-- Gewinneranzeige -->
+            <p id="winner-text" style="display:none; font-size:20px;"></p>
+
+            <button id="restart-btn" style="display:none;">Neustarten 🔄</button>
+        </main>
+
+        <script src="Spiel.js"></script>
+        <footer></footer>
+    </body>
+</html>
